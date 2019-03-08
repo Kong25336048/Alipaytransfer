@@ -22,6 +22,7 @@ namespace Alipaytransfer
         static string showName;
         static void Main(string[] args)
         {
+
             //加载配置
             serverUrl = ConfigurationManager.AppSettings.Get("serverUrl");
             privateKeyPem = ConfigurationManager.AppSettings.Get("privateKeyPem");

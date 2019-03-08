@@ -15,9 +15,12 @@ namespace Alipaytransfer
         static string conn;
         static DrawBonusService()
         {
-            conn = ConfigurationManager.ConnectionStrings["MsSql"].ConnectionString;
+            var econn = ConfigurationManager.ConnectionStrings["MsSql"].ConnectionString;
+
+            conn = CoreHelper.EncryptHelper.DecryptString(econn, "htx12345");
             preLimit = int.Parse(ConfigurationManager.AppSettings.Get("preLimit"));
         }
+
 
         static SqlConnection Open()
         {
